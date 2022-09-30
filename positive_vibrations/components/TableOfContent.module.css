@@ -1,0 +1,8 @@
+.table a {
+    text-decoration: none;
+    color: black;
+}
+
+.activePage {
+    background: #e7f1ff !important;
+}

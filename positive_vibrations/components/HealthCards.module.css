@@ -1,0 +1,8 @@
+.cardCol {
+    display: flex;
+    justify-content: center;
+}
+
+.cardRow {
+    max-width: 890px;
+}

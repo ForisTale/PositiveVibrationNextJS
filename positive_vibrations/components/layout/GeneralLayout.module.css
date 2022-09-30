@@ -1,0 +1,27 @@
+.app {
+    text-align: center;
+}
+
+.leftBackground {
+    max-width: 500px !important;
+}
+
+.rightBackground {
+    max-width: 500px !important;
+}
+
+.contentRow {
+    justify-content: center;
+}
+
+.centerCol {
+    max-width: 848px !important;
+}
+
+.headerSeparator {
+    margin: 50px;
+}
+
+.footerSeparator {
+    margin: 25px;
+}

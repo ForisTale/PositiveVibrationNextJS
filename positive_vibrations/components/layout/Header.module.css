@@ -1,0 +1,43 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navBar {
+}
+
+.logo {
+    font-family: "Sofia";
+    color: green !important;
+    margin-right: 2rem !important;
+}
+
+.logoLink {
+    text-decoration: none;
+}
+
+.canvasTitle {
+    font-family: Sofia;
+    color: darkgreen;
+}
+
+.nav{
+}
+
+.nav a {
+    text-decoration: none;
+    color: black !important;
+    border-radius: 10px;
+    margin: auto;
+    white-space: nowrap;
+}
+
+.active {
+    background: lightgreen;
+}
+
+.nav a:hover {
+    color: darkgreen !important;
+    background: lightgray;
+}
