@@ -1,26 +1,28 @@
-import {AllPages} from "../../../components/HyaluronicMask";
+import {CHAPTERS} from "../../../components/HyaluronicMask";
 import TableOfContent from "../../../components/TableOfContent";
 import {URLS} from "../../../inventory/URLS";
 import {useRouter} from "next/router";
 
 const HyaluronicMask = () => {
   const router = useRouter();
-  const pageIndex = getPageIndex(router.query.pageNumber);
-  let Page = AllPages[pageIndex].page;
+  const page = assemblePageFromChapters(CHAPTERS, router.query.pageNumber);
 
   return (
     <>
-      <Page/>
-      <TableOfContent allPages={AllPages} baseUrl={`${URLS.health}/hyaluronic-mask`}/>
+      {page}
+      <TableOfContent chapters={CHAPTERS} baseUrl={`${URLS.health}/hyaluronic-mask`}/>
     </>
   );
 };
 
-export function getPageIndex(pageNumber) {
-  let number = parseInt(pageNumber);
-  if (isNaN(number) || (number >= AllPages.length || number <= 0))
-    return 0;
-  return number;
+export function assemblePageFromChapters(chapters, pageIndex) {
+  const filteredChapters = [];
+  for (let chapter of chapters) {
+    if (chapter.pageIndex === pageIndex) {
+      filteredChapters.push(<chapter.component key={chapter.id}/>);
+    }
+  }
+  return filteredChapters;
 }
 
 export default HyaluronicMask;

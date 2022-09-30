@@ -1,41 +1,22 @@
-import {getPageIndex} from "./[pageNumber]"
+import {assemblePageFromChapters} from "./[pageNumber]"
 
-jest.mock("../../../components/hyaluronic-mask", () => ({AllPages: [0, 1, 2]}));
 
-describe("getPageNumber function", () => {
+describe("assemblePageFromChapters returns Fragment component with chapters ", () => {
+  const CHAPTERS = [
+    {pageIndex: "0", component: "p", id: "0"},
+    {pageIndex: "1", component: "p", id: "1"},
+    {pageIndex: "1", component: "p", id: "2"},
+    {pageIndex: "2", component: "p", id: "3"},
+  ];
 
-  test("return 1 for '1'", () => {
-    const pageNumber = getPageIndex("1");
-    expect(pageNumber).toEqual(1);
+  test("return chapter 3 in fragment component", () => {
+    const result = assemblePageFromChapters(CHAPTERS, "2");
+    expect(result).toEqual([<p key={"3"}/>]);
   });
 
-  test("return 2 for '2.2'", () => {
-    const pageNumber = getPageIndex("2.2");
-    expect(pageNumber).toEqual(2);
+  test("returns chapters 1 & 2 in fragment component", () => {
+    const result = assemblePageFromChapters(CHAPTERS, "1");
+    expect(result).toEqual([<p key={"1"}/>,<p key={"2"}/>]);
   });
 
-  test("return 0 for '3'", () => {
-    const pageNumber = getPageIndex("3");
-    expect(pageNumber).toEqual(0);
-  })
-
-  test("return 0 for '4'", () => {
-    const pageNumber = getPageIndex("4");
-    expect(pageNumber).toEqual(0);
-  })
-
-  test("return 0 for 'a'", () => {
-    const pageNumber = getPageIndex("a");
-    expect(pageNumber).toEqual(0);
-  })
-
-  test("return 0 for '0'", () => {
-    const pageNumber = getPageIndex("0");
-    expect(pageNumber).toEqual(0);
-  })
-
-  test("return 0 for '-1'", () => {
-    const pageNumber = getPageIndex("-1");
-    expect(pageNumber).toEqual(0);
-  })
 });

@@ -1,20 +1,20 @@
 import Row from "react-bootstrap/Row";
-import classes from "./Page.module.css";
-import {AllPages} from "./index";
+import classes from "./Wstep.module.css";
+import {CHAPTERS} from "./index";
 
-const Page = () => {
-  const pageList = AllPages.map((page) => (
-    <li key={page.title}>{page.title}</li>
+const Wstep = () => {
+  const pageList = CHAPTERS.map((chapter) => (
+    <li key={chapter.id}>{chapter.title}</li>
   ));
 
   return (
-    <>
+    <section id={"wstep"}>
       <Row>
         <h1>MASKA HIALURONOWA</h1>
         <h2>Rytuał trzech kroków</h2>
         <div className={classes.br}/>
-        <p className={classes.text}>Inspirowany azjatyckim rytuałem pielęgnacyjnym, unikalny rytuał trzech kroków
-          Skinonly Routine: detoks,nawilżenie, odmłodzenie.
+        <p className={classes.text}>Inspirowany azjatyckim rytuałem pielęgnacyjnym, unikalny <b>rytuał trzech
+          kroków </b> Skinonly Routine: <b>detoks</b>, <b>nawilżenie</b>, <b>odmłodzenie</b>.
           <br/>Został stworzony dla osiągnięcia najlepszych efektów, które gwarantują młodzieńczy wygląd i głębokie
           nawilżenie.
           Regularne stosowanie rytuału błyskawicznie przywróci skórze piękny wygląd, poprawi jej kondycję i zniweluje
@@ -38,7 +38,7 @@ const Page = () => {
         <p>Czym jest Hialuronowa Maska Nawilżająca – jakie jej składniki wpływają na opisywany wyżej efekt? <br/>
           Otóż w jej skład wchodzi ponad 20 składników. Przyjrzyjmy się tym składnikom, ich znaczeniu i oddziaływaniu na
           naszą skórę. <br/>
-          Podstawowym składnikiem jest <b>WODA</b>, która stanowi bazę i jest nośnikiem innych substancji. </p>
+          Podstawowym składnikiem jest WODA, która stanowi bazę i jest nośnikiem innych substancji. </p>
         <figure className={classes.figure}>
           <figcaption>Pozostałe składniki:</figcaption>
           <ul>
@@ -47,8 +47,8 @@ const Page = () => {
           </ul>
         </figure>
       </Row>
-    </>
+    </section>
   );
 };
 
-export default Page;
+export default Wstep;

@@ -7,17 +7,15 @@ import {useRouter} from "next/router";
 const TableOfContent = (props) => {
   const router = useRouter();
 
-  const linkGroup = props.allPages.map((page, index) => {
-    const pageUrl = `${props.baseUrl}/${index}`;
-    const isOnActivePage = pageUrl === router.asPath;
+  let linkGroup = props.chapters.map(chapter => {
+    const basePageUrl = `${props.baseUrl}/${chapter.pageIndex}`;
+    const isOnActivePage = basePageUrl === router.asPath.split("#")[0];
     return (
       <ListGroup.Item
-      className={`${isOnActivePage ? classes.activePage : ""}`}
-        key={page.title}
-      >
-        {isOnActivePage
-          ? page.title
-          : <Link href={pageUrl} passHref><a>{page.title}</a></Link>}
+        className={`${isOnActivePage ? classes.activePage : ""}`}
+        key={chapter.id}
+        >
+        <Link href={`${basePageUrl}/#${chapter.id}`} passHref><a>{chapter.title}</a></Link>
       </ListGroup.Item>
     );
   });
