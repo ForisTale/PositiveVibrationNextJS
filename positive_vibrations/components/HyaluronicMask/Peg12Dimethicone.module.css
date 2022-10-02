@@ -1,0 +1,9 @@
+.list {
+    text-align: left;
+    text-justify: auto;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
+}

@@ -3,6 +3,7 @@ import TableOfContent from "../../../components/layout/TableOfContent";
 import {URLS} from "../../../inventory/URLS";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
+import classes from "./HyaluronicMask.module.css";
 
 const HyaluronicMask = () => {
   const router = useRouter();
@@ -16,10 +17,10 @@ const HyaluronicMask = () => {
   }, [router.query.pageNumber]);
 
   return (
-    <>
+    <div className={classes.justify}>
       {page}
       <TableOfContent pages={PAGES} baseUrl={`${URLS.health}/hyaluronic-mask`}/>
-    </>
+    </div>
   );
 };
 
