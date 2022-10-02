@@ -1,5 +1,5 @@
 import {PAGES} from "../../../components/HyaluronicMask";
-import TableOfContent from "../../../components/TableOfContent";
+import TableOfContent from "../../../components/layout/TableOfContent";
 import {URLS} from "../../../inventory/URLS";
 import {useRouter} from "next/router";
 
@@ -17,8 +17,8 @@ const HyaluronicMask = () => {
 
 export function assemblePageFromChapters(chapters, pageIndex) {
   const filteredChapters = [];
-  if (pageIndex) {
-    for (let chapter of chapters[pageIndex]) {
+  if (pageIndex && chapters) {
+    for (let chapter of chapters[parseInt(pageIndex)]) {
       filteredChapters.push(<chapter.component key={chapter.id}/>);
     }
   }

@@ -6,3 +6,15 @@
 .activePage {
     background: #e7f1ff !important;
 }
+
+.buttonsRow {
+
+}
+
+.rowSeparator {
+    margin-bottom: 10px;
+}
+
+.disabled {
+    display: none;
+}
