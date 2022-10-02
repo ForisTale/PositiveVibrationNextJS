@@ -1,6 +1,5 @@
 import Accordion from "react-bootstrap/Accordion";
 import ListGroup from "react-bootstrap/ListGroup";
-import Link from "next/link";
 import classes from "./TableOfContent.module.css";
 import {useRouter} from "next/router";
 import NextPrevButton from "./NextPrevButton";
@@ -11,15 +10,20 @@ const TableOfContent = (props) => {
   const router = useRouter();
   const pageNumber = parseInt(router.query.pageNumber);
 
+const linkHandler = (url) => {
+  router.push(url);
+};
+
   let linkGroup = props.pages.map((page, pageIndex) => page.map(chapter => {
     const basePageUrl = `${props.baseUrl}/${pageIndex}`;
     const isOnActivePage = basePageUrl === router.asPath.split("#")[0];
     return (
       <ListGroup.Item
-        className={`${isOnActivePage ? classes.activePage : ""}`}
+        className={`${isOnActivePage ? classes.activePage : ""} ${classes.hoverButtonEffect}`}
         key={chapter.id}
+        onClick={linkHandler.bind(null, `${basePageUrl}/#${chapter.id}`)}
       >
-        <Link href={`${basePageUrl}/#${chapter.id}`} passHref><a>{chapter.title}</a></Link>
+        {chapter.title}
       </ListGroup.Item>
     );
   }));
@@ -33,7 +37,7 @@ const TableOfContent = (props) => {
         ><NextPrevButton url={`${props.baseUrl}/${pageNumber + 1}`} next/></Col>
       </Row>
       <Row className={classes.rowSeparator}/>
-      <Accordion className={classes.table}>
+      <Accordion>
         <Accordion.Item eventKey={"0"}>
           <Accordion.Header>Spis Treści</Accordion.Header>
           <Accordion.Body>
