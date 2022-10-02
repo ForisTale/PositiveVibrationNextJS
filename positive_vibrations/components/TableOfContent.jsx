@@ -7,8 +7,8 @@ import {useRouter} from "next/router";
 const TableOfContent = (props) => {
   const router = useRouter();
 
-  let linkGroup = props.chapters.map(chapter => {
-    const basePageUrl = `${props.baseUrl}/${chapter.pageIndex}`;
+  let linkGroup = props.pages.map((page, pageIndex) => page.map(chapter => {
+    const basePageUrl = `${props.baseUrl}/${pageIndex}`;
     const isOnActivePage = basePageUrl === router.asPath.split("#")[0];
     return (
       <ListGroup.Item
@@ -18,7 +18,7 @@ const TableOfContent = (props) => {
         <Link href={`${basePageUrl}/#${chapter.id}`} passHref><a>{chapter.title}</a></Link>
       </ListGroup.Item>
     );
-  });
+  }));
 
   return (
     <Accordion className={classes.table}>

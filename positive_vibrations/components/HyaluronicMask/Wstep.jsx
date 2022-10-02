@@ -1,11 +1,12 @@
 import Row from "react-bootstrap/Row";
 import classes from "./Wstep.module.css";
-import {CHAPTERS} from "./index";
+import {PAGES} from "./index";
 
 const Wstep = () => {
-  const pageList = CHAPTERS.map((chapter) => (
-    <li key={chapter.id}>{chapter.title}</li>
-  ));
+  const pageList = [];
+    PAGES.map((page) => page.map(chapter => {
+      pageList.push(<li key={chapter.id}>{chapter.title}</li>)
+    }));
 
   return (
     <section id={"wstep"}>

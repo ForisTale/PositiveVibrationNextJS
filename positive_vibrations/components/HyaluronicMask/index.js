@@ -9,15 +9,23 @@ import Chapter07 from "./GlikolPropylenowy";
 import Chapter08 from "./Phenoxyethanol";
 import Chapter09 from "./SodiumPCA";
 
-export const CHAPTERS= [
-  {title: "Wstęp", component: Chapter00, id: "wstep", pageIndex: "0"},
-  {title: "Gliceryna", component: Chapter01, id: "gliceryna", pageIndex: "1"},
-  {title: "Izomerat Sacharydowy, Pentawityna", component: Chapter02, id: "izomerat", pageIndex: "1"},
-  {title: "PEG-12 Dimethicone", component: Chapter03, id: "peg12", pageIndex: "1"},
-  {title: "Sodium Hyaluronate", component: Chapter04, id: "sodiumHyaluronate", pageIndex: "2"},
-  {title: "Hyaluronic Acid", component: Chapter05, id: "hyaluronicAcid", pageIndex: "2"},
-  {title: "Methyl Gluceth-20", component: Chapter06, id: "methylGluceth", pageIndex: "2"},
-  {title: "Glikol propylenowy", component: Chapter07, id: "glikolPropylenowy", pageIndex: "3"},
-  {title: "Phenoxyethanol", component: Chapter08, id: "phenoxyethanol", pageIndex: "3"},
-  {title: "Sodium PCA", component: Chapter09, id: "sodiumPca", pageIndex: "3"},
+export const PAGES = [
+  [
+    {title: "Wstęp", component: Chapter00, id: "wstep"},
+  ],
+  [
+    {title: "Gliceryna", component: Chapter01, id: "gliceryna"},
+    {title: "Izomerat Sacharydowy, Pentawityna", component: Chapter02, id: "izomerat"},
+    {title: "PEG-12 Dimethicone", component: Chapter03, id: "peg12"},
+  ],
+  [
+    {title: "Sodium Hyaluronate", component: Chapter04, id: "sodiumHyaluronate"},
+    {title: "Hyaluronic Acid", component: Chapter05, id: "hyaluronicAcid"},
+    {title: "Methyl Gluceth-20", component: Chapter06, id: "methylGluceth"},
+  ],
+  [
+    {title: "Glikol propylenowy", component: Chapter07, id: "glikolPropylenowy"},
+    {title: "Phenoxyethanol", component: Chapter08, id: "phenoxyethanol"},
+    {title: "Sodium PCA", component: Chapter09, id: "sodiumPca"},
+  ],
 ];
