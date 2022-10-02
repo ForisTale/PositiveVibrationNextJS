@@ -2,10 +2,18 @@ import {PAGES} from "../../../components/HyaluronicMask";
 import TableOfContent from "../../../components/layout/TableOfContent";
 import {URLS} from "../../../inventory/URLS";
 import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
 
 const HyaluronicMask = () => {
   const router = useRouter();
-  const page = assemblePageFromChapters(PAGES, router.query.pageNumber);
+  const [page, setPage] = useState([]);
+
+  useEffect(() => {
+    const pageNumber = parseInt(router.query.pageNumber);
+    if (pageNumber || pageNumber === 0) {
+      setPage(assemblePageFromChapters(PAGES, pageNumber));
+    }
+  }, [router.query.pageNumber]);
 
   return (
     <>
@@ -15,12 +23,12 @@ const HyaluronicMask = () => {
   );
 };
 
-export function assemblePageFromChapters(chapters, pageIndex) {
+export function assemblePageFromChapters(pages, pageIndex) {
   const filteredChapters = [];
-  if (pageIndex && chapters) {
-    for (let chapter of chapters[parseInt(pageIndex)]) {
+  if (pageIndex >= 0 && pageIndex < pages.length) {
+    pages[pageIndex].map(chapter => {
       filteredChapters.push(<chapter.component key={chapter.id}/>);
-    }
+    });
   }
   return filteredChapters;
 }
