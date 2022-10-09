@@ -1,4 +1,4 @@
-import {assemblePageFromChapters} from "./[pageNumber]"
+import {assemblePageFromChapters} from "../pages/health/hyaluronic-mask/[pageNumber]"
 
 
 describe("assemblePageFromChapters returns Fragment component with chapters ", () => {
