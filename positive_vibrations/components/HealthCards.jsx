@@ -1,4 +1,4 @@
-import Card from "./Layout/Card/Card";
+import Card from "./layout/Card/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SUMMARY from "../inventory/HealthSummaryDescription";
