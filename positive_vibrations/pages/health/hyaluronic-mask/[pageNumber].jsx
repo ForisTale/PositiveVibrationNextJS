@@ -16,6 +16,12 @@ const HyaluronicMask = () => {
     }
   }, [router.query.pageNumber]);
 
+  useEffect(() => {
+    if (router.asPath.includes("#")) {
+      router.push(router.asPath);
+    }
+  }, [router.asPath])
+
   return (
     <div className={classes.justify}>
       {page}

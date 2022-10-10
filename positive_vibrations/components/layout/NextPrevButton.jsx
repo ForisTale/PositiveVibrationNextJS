@@ -1,5 +1,4 @@
 import {Button} from "react-bootstrap";
-import Link from "next/link";
 import styles from "./NextPrevButton.module.css";
 import {useRouter} from "next/router";
 

@@ -3,3 +3,8 @@
     border-color:lightgrey;
     color: black;
 }
+
+.button:hover {
+    background-color: white !important;
+    color: black !important;
+}
